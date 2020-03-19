@@ -27,7 +27,7 @@ In this example, an Amazon employee inputs the name of the item and its "base pr
 ### Refactor the Amazon Price Generator
 Congrats to reaching the half way point of the course. You have learned so much up to this point that its time to refactor another previous assignment. Refactoring is a process that involves editing and cleaning up previously written code without changing the behavior of the code at all.
 
-Let's take a look at the **Amazon Price Generator** project from Unit 8. From Unit 8 until now, you have learned so much. Can you use any of the latest concepts that has been taught to make the Amazon Price Generator better.  Here's a couple of things to do or consider:
+Let's take a look at the **Amazon Price Generator** project from Unit 8. From Unit 8 until now, you have learned so much. Can you use any of the latest concepts that have been taught to make the Amazon Price Generator better?  Here are a couple of things to do or consider:
 
 * You already have this project in your Github repo and/or local. If you don't, make sure to clone that project into your PROJECT folder on your computer.
 * Make a new **branch** of this project and name it "refactored"
