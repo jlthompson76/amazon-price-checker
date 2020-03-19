@@ -20,6 +20,7 @@ function askBlackFriday() {
 
     for (let index = 0; ((blackFriday != "yes") && (blackFriday != "no")); index++) {
         blackFriday = prompt(`Is today Black Friday? Please enter yes or no, ${user}.`);
+        blackFriday = blackFriday.toLowerCase();
     } console.log(`Black Friday? ${blackFriday}`);
 
     if (blackFriday === "yes") {
@@ -48,6 +49,7 @@ function askSearchEngine() {
 
     for (let index = 0; ((searchEngine != "yes") && (searchEngine != "no")); index++) {
         searchEngine = prompt(`Did the purchaser find the product through a search engine? Please enter yes or no, ${user}.`);
+        searchEngine = searchEngine.toLowerCase();
     } console.log(`search engine? ${searchEngine}`);
 
     if (searchEngine === "yes") {
@@ -64,6 +66,7 @@ function askShoppingSite() {
 
     for (let index = 0; ((shoppingSite != "yes") && (shoppingSite != "no")); index++) {
         shoppingSite = prompt(`Did the purchaser visit a comparison shopping site? Please enter yes or no, ${user}.`);
+        shoppingSite = shoppingSite.toLowerCase();
     } console.log(`comparison shopping site? ${shoppingSite}`);
 
     if (shoppingSite === "yes") {
