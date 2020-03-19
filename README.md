@@ -13,7 +13,7 @@ In this example, an Amazon employee inputs the name of the item and its "base pr
     * Did purchaser visit a comparison-shopping site?
 
 3. Now your script should create a message containing several sentences, based on the Amazon employee's answers above.  Your script should also increase or decrease the item price based on those answers.  Below is a conditional statement that might appear in your code.  Note that the first line inside the code block concatenates two strings, and the second line adds 1% to the `finalPrice` variable.
-   * `if (searchEngine === "yes") {
+   `* if (searchEngine === "yes") {
         * message = message + "The purchaser came through a search engine, so we will increase the price by 1%. ";
         * finalPrice = finalPrice * 1.01;
     * };`
