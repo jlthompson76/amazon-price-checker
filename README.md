@@ -1,4 +1,4 @@
-### Amazon Price Checker Project
+### Amazon Price Generator Project
 In this exercise you will create a script that determines how Amazon should price items on its website, to make the most profit (many people don't realize that Amazon changes the price of an item based on when you purchase it, the browser you use, and many other factors).  
 
 In this example, an Amazon employee inputs the name of the item and its "base price" (i.e. the price before Amazon has applied any discounts or markups). Then the employee answers questions that will impact the final price of the item: for example, if the purchaser arrived at Amazon from a search engine, or if today is "Black Friday" (a big day for discounts).
@@ -13,7 +13,7 @@ In this example, an Amazon employee inputs the name of the item and its "base pr
     * Did purchaser visit a comparison-shopping site?
 
 3. Now your script should create a message containing several sentences, based on the Amazon employee's answers above.  Your script should also increase or decrease the item price based on those answers.  Below is a conditional statement that might appear in your code.  Note that the first line inside the code block concatenates two strings, and the second line adds 1% to the `finalPrice` variable.
-   ` * if (searchEngine === "yes") {
+   * `if (searchEngine === "yes") {
         * message = message + "The purchaser came through a search engine, so we will increase the price by 1%. ";
         * finalPrice = finalPrice * 1.01;
     * };`
