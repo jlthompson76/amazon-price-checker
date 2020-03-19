@@ -16,7 +16,7 @@ In this example, an Amazon employee inputs the name of the item and its "base pr
     * `if (searchEngine === "yes") {`
       * `message = message + "The purchaser came through a search engine, so we will increase the price by 1%. ";`
       * `finalPrice = finalPrice * 1.01;`
-      * `};`
+    * `};`
 
 4. When it's finished with this logic, your script should alert something like the following:
     * "The base price for a [item] is [basePrice]. We will increase the price by 1% to pay the search engine. This purchaser is a comparison shopper, so we will reduce the price by 10%. Since it's Black Friday, we will reduce the price by 25%. The final price is [finalPrice]."
