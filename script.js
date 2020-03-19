@@ -17,9 +17,11 @@ function greetUser() {
 function askBlackFriday() {
     blackFriday = prompt(`${user}, is today Black Friday? Please enter yes or no.`);
     blackFriday.toLowerCase();
+
     for (let index = 0; ((blackFriday != "yes") && (blackFriday != "no")); index++) {
         blackFriday = prompt(`Is today Black Friday? Please enter yes or no, ${user}.`)
     } console.log(`Black Friday? ${blackFriday}`);
+
     if (blackFriday === "yes") {
         blackFridayDiscount = Number(prompt(`Thank you, ${user}! You've indicated that today is Black Friday, so the purchaser will receive a discount. Please enter the amount of the Black Friday discount now. Please enter as a number between 0 and 100 (i.e., if the discount is 25%, please enter 25).`));
     } else if (blackFriday === "no") {
@@ -43,9 +45,11 @@ function askItemBasePrice() {
 function askSearchEngine() {
     searchEngine = prompt(`Did the purchaser find the product through a search engine? Please enter yes or no.`);
     searchEngine.toLowerCase();
+
     for (let index = 0; ((searchEngine != "yes") && (searchEngine != "no")); index++) {
-        searchEngine = prompt(`Did the purchaser find the product through a search engine? Please enter yes or no, ${user}.`)
+        searchEngine = prompt(`Did the purchaser find the product through a search engine? Please enter yes or no, ${user}.`);
     } console.log(`search engine? ${searchEngine}`);
+
     if (searchEngine === "yes") {
         searchEngineFee = Number(prompt(`Thank you, ${user}! You've indicated that the purchaser found the item through a search engine, so the price will be increased accordingly. Please enter the commission fee charged by the search engine now. Please enter this fee as a number between 0 and 100 (i.e., if the commission fee is 1%, please enter 1).`));
     } else if (searchEngine === "no") {
@@ -53,19 +57,31 @@ function askSearchEngine() {
         searchEngineFee = null;
     } console.log(`search engine commission fee = ${searchEngineFee}%`);
 }
-    
+
 function askShoppingSite() {
-    shoppingSite = prompt(`Did the purchaser visit a comparison shopping site?`);
+    shoppingSite = prompt(`Did the purchaser visit a comparison shopping site? Please enter yes or no.`);
     shoppingSite.toLowerCase();
-    console.log(`comparison shopping site? ${shoppingSite}`);
-    alert(`Thank you, ${user}!`);
+
+    for (let index = 0; ((shoppingSite != "yes") && (shoppingSite != "no")); index++) {
+        shoppingSite = prompt(`Did the purchaser visit a comparison shopping site? Please enter yes or no, ${user}.`)
+    } console.log(`comparison shopping site? ${shoppingSite}`);
+
+    if (shoppingSite === "yes") {
+        shoppingSiteDiscount = Number(prompt(`Thank you, ${user}! You've indicated that the purchaser is a comparison shopper, so the price will be reduced accordingly. Please enter the comparison shopping site discount now. Please enter this discount as a number between 0 and 100 (i.e., if the discount is 10%, please enter 10).`));
+    } else if (shoppingSite === "no") {
+        alert(`Thank you, ${user}! You've indicated that the purchaser is not a comparison shopper, so a comparison shopping site discount is not applicable.`);
+        shoppingSiteDiscount = null;
+    } console.log(`comparison shopping site discount = ${shoppingSiteDiscount}%`);
 }
 /*
 function calculatePrice() {
-
+    finalPrice = ;
+    console.log(finalPrice);
 }
 
 function displayMessage() {
-
+    message = ` `;
+    console.log(message);
+    alert(message);
 }
 */
