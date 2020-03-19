@@ -16,11 +16,10 @@ function greetUser() {
 
 function askBlackFriday() {
     blackFriday = prompt(`${user}, is today Black Friday? Please enter yes or no.`);
-    blackFriday.toLowerCase();
+    blackFriday = blackFriday.toLowerCase();
 
     for (let index = 0; ((blackFriday != "yes") && (blackFriday != "no")); index++) {
         blackFriday = prompt(`Is today Black Friday? Please enter yes or no, ${user}.`);
-        blackFriday.toLowerCase();
     } console.log(`Black Friday? ${blackFriday}`);
 
     if (blackFriday === "yes") {
@@ -45,11 +44,10 @@ function askItemBasePrice() {
     
 function askSearchEngine() {
     searchEngine = prompt(`Did the purchaser find the product through a search engine? Please enter yes or no.`);
-    searchEngine.toLowerCase();
+    searchEngine = searchEngine.toLowerCase();
 
     for (let index = 0; ((searchEngine != "yes") && (searchEngine != "no")); index++) {
         searchEngine = prompt(`Did the purchaser find the product through a search engine? Please enter yes or no, ${user}.`);
-        searchEngine.toLowerCase();
     } console.log(`search engine? ${searchEngine}`);
 
     if (searchEngine === "yes") {
@@ -62,11 +60,10 @@ function askSearchEngine() {
 
 function askShoppingSite() {
     shoppingSite = prompt(`Did the purchaser visit a comparison shopping site? Please enter yes or no.`);
-    shoppingSite.toLowerCase();
+    shoppingSite = shoppingSite.toLowerCase();
 
     for (let index = 0; ((shoppingSite != "yes") && (shoppingSite != "no")); index++) {
         shoppingSite = prompt(`Did the purchaser visit a comparison shopping site? Please enter yes or no, ${user}.`);
-        shoppingSite.toLowerCase();
     } console.log(`comparison shopping site? ${shoppingSite}`);
 
     if (shoppingSite === "yes") {
