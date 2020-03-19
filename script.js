@@ -1,4 +1,4 @@
-let user, item, basePrice, blackFriday, blackFridayDiscount, searchEngine, shoppingSite, finalPrice, message;
+let user, blackFriday, blackFridayDiscount, item, basePrice, searchEngine, searchEngineFee, shoppingSite, shoppingSiteDiscount, finalPrice, message;
 
 greetUser();
 askBlackFriday();
