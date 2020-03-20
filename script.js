@@ -2,12 +2,13 @@ function amazonPriceCheck() {
     let user, blackFriday, blackFridayDiscount, item, basePrice, searchEngine, searchEngineFee, shoppingSite, shoppingSiteDiscount, finalPrice, message;
 
     greetUser();
-    askBlackFriday();
     askItemBasePrice();
+    askBlackFriday();
     askSearchEngine();
     askShoppingSite();
     calculatePrice();
-    // displayMessage();
+    displayMessage();
+    addItems();
 
     function greetUser() {
         user = prompt(`Hello, welcome to the Amazon Price Generator! My name is Alexa, what is your name?`);
@@ -24,7 +25,7 @@ function amazonPriceCheck() {
             basePrice = Number(prompt(`Thank you, ${user}! Now please enter the base price of ${item}.`));
             basePrice = basePrice.toFixed(2);
             console.log(`base price: $${basePrice}`);
-            alert(`Thank you, ${user}! The base price of ${item} is $${basePrice}.`)
+            alert(`Thank you, ${user}! The base price of ${item} is $${basePrice}. Please click OK to continue.`)
         }
             
     function askBlackFriday() {
@@ -80,23 +81,59 @@ function amazonPriceCheck() {
     
     function calculatePrice() {
         blackFridayDiscount$ = (blackFridayDiscount / 100) * basePrice;
+        blackFridayDiscount$ = blackFridayDiscount$.toFixed(2);
         console.log(`Black Friday discount: ${blackFridayDiscount}% of $${basePrice} = $${blackFridayDiscount$}`);
+        blackFridayDiscount$ = Number(blackFridayDiscount$);
        
         searchEngineFee$ = (searchEngineFee / 100) * basePrice;
+        searchEngineFee$ = searchEngineFee$.toFixed(2);
         console.log(`search engine commission fee: ${searchEngineFee}% of $${basePrice} = $${searchEngineFee$}`);
+        searchEngineFee$ = Number(searchEngineFee$);
         
         shoppingSiteDiscount$ = (shoppingSiteDiscount / 100) * basePrice;
+        shoppingSiteDiscount$ = shoppingSiteDiscount$.toFixed(2);
         console.log(`comparison shopping site discount: ${shoppingSiteDiscount}% of ${basePrice} = $${shoppingSiteDiscount$}`);
+        shoppingSiteDiscount$ = Number(shoppingSiteDiscount$);
         
         finalPrice = basePrice - blackFridayDiscount$ + searchEngineFee$ - shoppingSiteDiscount$;
         finalPrice = finalPrice.toFixed(2);
         console.log(`final price: $${finalPrice}`);
     }
 
-    /* function displayMessage() {
-        message = ` `;
+    function displayMessage() {
+        message = `Thank you, ${user}! The final price of ${item} is $${finalPrice}.`;
         console.log(message);
         alert(message);
     }
-    */
+
+    function addItems() {
+        let keepGoing = prompt(`${user}, would you like to check the price of another Amazon product? Please enter yes to continue using the Amazon Price Generator or no to exit the application.`); 
+        keepGoing = keepGoing.toLowerCase;
+        while (keepGoing === "yes") {
+            askItemBasePrice;
+            calculatePrice;
+            displayMessage;
+        }
+    }
+}    
+        
+/*        
+        
+        if (keepGoing == "yes") {
+            keepGoing = true;
+        } else {
+            keepGoing = false;
+            alert(`Goodbye, ${user}! Thank you for using the Amazon Price Generator today.`);
+        } let i = 0;
+        while (keepGoing) {
+            askItemBasePrice;
+            calculatePrice;
+            displayMessage;
+            i++;
+            if (i > 100) {
+                break;
+            }
+        }
+    }
 }
+*/
