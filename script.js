@@ -113,12 +113,11 @@ function amazonPriceCheck() {
             askItemBasePrice;
             calculatePrice;
             displayMessage;
-        }
+        } alert(`Goodbye, ${user}! Thank you for using the Amazon Price Generator today.`);
     }
 }    
         
 /*        
-        
         if (keepGoing == "yes") {
             keepGoing = true;
         } else {
@@ -134,6 +133,4 @@ function amazonPriceCheck() {
                 break;
             }
         }
-    }
-}
 */
