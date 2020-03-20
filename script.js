@@ -109,6 +109,7 @@ function amazonPriceCheck() {
     function addItems() {
         let keepGoing = prompt(`${user}, would you like to check the price of another Amazon product? Please enter yes to continue using the Amazon Price Generator or no to exit the application.`); 
         keepGoing = keepGoing.toLowerCase;
+        // while loop not working, need to revise/debug
         while (keepGoing === "yes") {
             askItemBasePrice;
             calculatePrice;
