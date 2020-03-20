@@ -6,7 +6,7 @@ function amazonPriceCheck() {
     askItemBasePrice();
     askSearchEngine();
     askShoppingSite();
-    // calculatePrice();
+    calculatePrice();
     // displayMessage();
 
     function greetUser() {
@@ -15,6 +15,18 @@ function amazonPriceCheck() {
         alert(`Thank you, ${user}! Now let's get started!`);
     }
 
+        // make this a loop - ask user if he/she wants to continue shopping, if yes, continue asking for items & prices, stop when answer is no
+        function askItemBasePrice() {
+            item = prompt(`${user}, please enter the name of the item we'll be price checking today.`);
+            item = item.toLowerCase();
+            console.log(`item: ${item}`);
+            
+            basePrice = Number(prompt(`Thank you, ${user}! Now please enter the base price of ${item}.`));
+            basePrice = basePrice.toFixed(2);
+            console.log(`base price: $${basePrice}`);
+            alert(`Thank you, ${user}! The base price of ${item} is $${basePrice}.`)
+        }
+            
     function askBlackFriday() {
         blackFriday = prompt(`${user}, is today Black Friday? Please enter yes or no.`);
         blackFriday = blackFriday.toLowerCase();
@@ -29,21 +41,9 @@ function amazonPriceCheck() {
         } else if (blackFriday === "no") {
             alert(`Thank you, ${user}! You've indicated that today is not Black Friday, so the purchaser will not receive a Black Friday discount.`);
             blackFridayDiscount = null;
-        } console.log(`Black Friday discount = ${blackFridayDiscount}%`);
+        } console.log(`Black Friday discount = ${blackFridayDiscount}% (deducted from base price)`);
     }
 
-    // make this a loop - ask user if he/she wants to continue shopping, if yes, continue asking for items & prices, stop when answer is no
-    function askItemBasePrice() {
-        item = prompt(`${user}, please enter the name of the item we'll be price checking today.`);
-        item = item.toLowerCase();
-        console.log(`item: ${item}`);
-        
-        basePrice = Number(prompt(`Thank you, ${user}! Now please enter the base price of ${item}.`));
-        basePrice = basePrice.toFixed(2);
-        console.log(`base price: $${basePrice}`);
-        alert(`Thank you, ${user}! The base price of ${item} is $${basePrice}.`)
-    }
-        
     function askSearchEngine() {
         searchEngine = prompt(`Did the purchaser find the product through a search engine? Please enter yes or no.`);
         searchEngine = searchEngine.toLowerCase();
@@ -58,7 +58,7 @@ function amazonPriceCheck() {
         } else if (searchEngine === "no") {
             alert(`Thank you, ${user}! You've indicated that the purchaser did not find the item through a search engine, so a search engine commission fee is not applicable.`);
             searchEngineFee = null;
-        } console.log(`search engine commission fee = ${searchEngineFee}%`);
+        } console.log(`search engine commission fee = ${searchEngineFee}% (added to base price)`);
     }
 
     function askShoppingSite() {
@@ -75,15 +75,25 @@ function amazonPriceCheck() {
         } else if (shoppingSite === "no") {
             alert(`Thank you, ${user}! You've indicated that the purchaser is not a comparison shopper, so a comparison shopping site discount is not applicable.`);
             shoppingSiteDiscount = null;
-        } console.log(`comparison shopping site discount = ${shoppingSiteDiscount}%`);
+        } console.log(`comparison shopping site discount = ${shoppingSiteDiscount}% (deducted from base price)`);
     }
-    /*
+    
     function calculatePrice() {
-        finalPrice = ;
-        console.log(finalPrice);
+        blackFridayDiscount$ = (blackFridayDiscount / 100) * basePrice;
+        console.log(`Black Friday discount: ${blackFridayDiscount}% of $${basePrice} = $${blackFridayDiscount$}`);
+       
+        searchEngineFee$ = (searchEngineFee / 100) * basePrice;
+        console.log(`search engine commission fee: ${searchEngineFee}% of $${basePrice} = $${searchEngineFee$}`);
+        
+        shoppingSiteDiscount$ = (shoppingSiteDiscount / 100) * basePrice;
+        console.log(`comparison shopping site discount: ${shoppingSiteDiscount}% of ${basePrice} = $${shoppingSiteDiscount$}`);
+        
+        finalPrice = basePrice - blackFridayDiscount$ + searchEngineFee$ - shoppingSiteDiscount$;
+        finalPrice = finalPrice.toFixed(2);
+        console.log(`final price: $${finalPrice}`);
     }
 
-    function displayMessage() {
+    /* function displayMessage() {
         message = ` `;
         console.log(message);
         alert(message);
