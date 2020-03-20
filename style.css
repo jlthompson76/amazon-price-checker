@@ -2,14 +2,15 @@
 black
 goldenrod #f39d31
 steelblue #1c7dbb
+skyblue #7ec1eb (background)
 
 Font:
 sans serif
-Officina Sans Bold
-(substituted with Open Sans from Google Fonts) */
+Amazon: Officina Sans Bold
+Open Sans Extra Bold & Roboto Bold Italic from Google Fonts */
 
 body {
-    background-color: #1c7dbb;
+    background-color: #7ec1eb;
     font-family: 'Open Sans', sans-serif;
     padding: 0;
     margin: 0;
@@ -20,19 +21,42 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 0 100px;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
 
 h1 {
     color:black;
-    font-size: 300%;
+    font-size: 3em;
     padding: 0;
-    margin: 50px 0;
+    margin: 50px 0 0 0;
 }
 
 .image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #f39d31;
     border: 1px solid #f39d31;
     border-radius: 25%;
     padding: 0;
     margin: 0;
+    width: auto;
+}
+
+button {
+    background-color: #1c7dbb;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    font-size: 2.5em;
+    border: none;
+    border-radius: 50px;
+    padding: 30px;
+    margin: 50px;
+    width: 550px;
 }
