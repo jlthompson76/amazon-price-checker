@@ -1,0 +1,38 @@
+/* Color Palette:
+black
+goldenrod #f39d31
+steelblue #1c7dbb
+
+Font:
+sans serif
+Officina Sans Bold
+(substituted with Open Sans from Google Fonts) */
+
+body {
+    background-color: #1c7dbb;
+    font-family: 'Open Sans', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    color:black;
+    font-size: 300%;
+    padding: 0;
+    margin: 50px 0;
+}
+
+.image {
+    background-color: #f39d31;
+    border: 1px solid #f39d31;
+    border-radius: 25%;
+    padding: 0;
+    margin: 0;
+}
