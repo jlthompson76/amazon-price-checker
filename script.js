@@ -1,6 +1,6 @@
 function amazonPriceCheck() {
 
-    let user, item, basePrice, blackFriday, blackFridayDiscount, searchEngine, searchEngineFee, shoppingSite, shoppingSiteDiscount, blackFridayDiscount$, searchEngineFee$, shoppingSiteDiscount$, finalPrice, message, keepGoing;
+    let user, item, basePrice, blackFriday, blackFridayDiscount, searchEngine, searchEngineFee, shoppingSite, shoppingSiteDiscount, blackFridayDiscount$, blackFridayDiscountTF, searchEngineFee$, searchEngineFeeTF, shoppingSiteDiscount$, shoppingSiteDiscountTF, finalPrice, finalPriceTF, messageBP, messageBF, messageSE, messageCS, messageFP, finalMessage, keepGoing;
 
     greetUser();
     askQuestions();
@@ -9,7 +9,7 @@ function amazonPriceCheck() {
     checkNewItem();
 
     // *** While loop isn't working correctly, need to continue debugging ***
-    console.log(keepGoing); // returning the keepGoing variable from the checkNewItem function gives it a value of undefined (which should be false?), but the while loop keeps repeating
+    console.log(keepGoing); // returning the keepGoing variable from the checkNewItem function gives it a value of undefined (which should be false?), but the while loop keeps repeating regardless of whether the user enters yes or no
     while (keepGoing = true) {
         console.log(`checking the price of another product...`);
         askQuestions();
@@ -44,7 +44,7 @@ function amazonPriceCheck() {
             basePrice = basePrice.toFixed(2);
             console.log(`base price: $${basePrice}`);
             
-            alert(`You've entered a base price of $${basePrice} for ${item}. Please click OK to continue.`)
+            alert(`You've entered a base price of $${basePrice} for ${item}. Please click OK to continue.`);
         }
             
         function askBlackFriday() {
@@ -60,7 +60,7 @@ function amazonPriceCheck() {
                 blackFridayDiscount = Number(prompt(`Thank you, ${user}! You've indicated that today is Black Friday, so the purchaser will receive a discount. Please enter the amount of the Black Friday discount now. Please enter as a number between 0 and 100 (i.e., if the discount is 25%, please enter 25).`));
             } else if (blackFriday === "no") {
                 alert(`Thank you, ${user}! You've indicated that today is not Black Friday, so the purchaser will not receive a Black Friday discount.`);
-                blackFridayDiscount = null;
+                blackFridayDiscount = 0;
             } console.log(`Black Friday discount = ${blackFridayDiscount}% (deducted from base price)`);
         }
 
@@ -77,7 +77,7 @@ function amazonPriceCheck() {
                 searchEngineFee = Number(prompt(`Thank you, ${user}! You've indicated that the purchaser found the item through a search engine, so the price will be increased accordingly. Please enter the commission fee charged by the search engine now. Please enter this fee as a number between 0 and 100 (i.e., if the commission fee is 1%, please enter 1).`));
             } else if (searchEngine === "no") {
                 alert(`Thank you, ${user}! You've indicated that the purchaser did not find the item through a search engine, so a search engine commission fee is not applicable.`);
-                searchEngineFee = null;
+                searchEngineFee = 0;
             } console.log(`search engine commission fee = ${searchEngineFee}% (added to base price)`);
         }
 
@@ -94,36 +94,55 @@ function amazonPriceCheck() {
                 shoppingSiteDiscount = Number(prompt(`Thank you, ${user}! You've indicated that the purchaser is a comparison shopper, so the price will be reduced accordingly. Please enter the comparison shopping site discount now. Please enter this discount as a number between 0 and 100 (i.e., if the discount is 10%, please enter 10).`));
             } else if (shoppingSite === "no") {
                 alert(`Thank you, ${user}! You've indicated that the purchaser is not a comparison shopper, so a comparison shopping site discount is not applicable.`);
-                shoppingSiteDiscount = null;
+                shoppingSiteDiscount = 0;
             } console.log(`comparison shopping site discount = ${shoppingSiteDiscount}% (deducted from base price)`);
         }
     }
 
     function calculatePrice() {
-        blackFridayDiscount$ = (blackFridayDiscount / 100) * basePrice;
-        blackFridayDiscount$ = blackFridayDiscount$.toFixed(2);
-        console.log(`Black Friday discount: ${blackFridayDiscount}% of $${basePrice} = $${blackFridayDiscount$}`);
-        blackFridayDiscount$ = Number(blackFridayDiscount$);
-       
-        searchEngineFee$ = (searchEngineFee / 100) * basePrice;
-        searchEngineFee$ = searchEngineFee$.toFixed(2);
-        console.log(`search engine commission fee: ${searchEngineFee}% of $${basePrice} = $${searchEngineFee$}`);
-        searchEngineFee$ = Number(searchEngineFee$);
-        
-        shoppingSiteDiscount$ = (shoppingSiteDiscount / 100) * basePrice;
-        shoppingSiteDiscount$ = shoppingSiteDiscount$.toFixed(2);
-        console.log(`comparison shopping site discount: ${shoppingSiteDiscount}% of ${basePrice} = $${shoppingSiteDiscount$}`);
-        shoppingSiteDiscount$ = Number(shoppingSiteDiscount$);
+        blackFridayDiscount$ = Number((blackFridayDiscount / 100) * basePrice);
+        blackFridayDiscountTF = blackFridayDiscount$.toFixed(2);
+        console.log(`Black Friday discount: ${blackFridayDiscount}% of $${basePrice} = $${blackFridayDiscountTF}`);
+             
+        searchEngineFee$ = Number((searchEngineFee / 100) * basePrice);
+        searchEngineFeeTF = searchEngineFee$.toFixed(2);
+        console.log(`search engine commission fee: ${searchEngineFee}% of $${basePrice} = $${searchEngineFeeTF}`);
+                
+        shoppingSiteDiscount$ = Number((shoppingSiteDiscount / 100) * basePrice);
+        shoppingSiteDiscountTF = shoppingSiteDiscount$.toFixed(2);
+        console.log(`comparison shopping site discount: ${shoppingSiteDiscount}% of ${basePrice} = $${shoppingSiteDiscountTF}`);
         
         finalPrice = basePrice - blackFridayDiscount$ + searchEngineFee$ - shoppingSiteDiscount$;
-        finalPrice = finalPrice.toFixed(2);
-        console.log(`final price: $${finalPrice}`);
+        finalPriceTF = finalPrice.toFixed(2);
+        console.log(`final price: $${finalPriceTF}`);
     }
 
     function displayMessage() {
-        message = `${user}, the final price of ${item} is $${finalPrice}.`;
-        console.log(message);
-        alert(message);
+        messageBP = `${user}, the base price of ${item} is $${basePrice}. `;
+        
+        if (blackFridayDiscount != 0) {
+            messageBF = `Since today is Black Friday, the purchaser will receive a discount of ${blackFridayDiscount}%, reducing the base price of ${item} by $${blackFridayDiscountTF}. `;
+        } else {
+            messageBF = "";
+        }
+
+        if (searchEngineFee != 0) {
+            messageSE = `Because the purchaser visited Amazon through a search engine and the search engine charges us a commission fee of ${searchEngineFee}%, the base price of ${item} will be increased by $${searchEngineFeeTF}. `;
+        } else {
+            messageSE = "";
+        }
+
+        if (shoppingSiteDiscount != 0) {
+            messageCS = `The purchaser is a comparison shopper, so a discount of ${shoppingSiteDiscount}% applies to this transaction, reducing the base price by $${shoppingSiteDiscountTF}. `;
+        } else {
+            messageCS = "";
+        }
+
+        messageFP = `The final price of ${item} is $${finalPriceTF}.`;
+        
+        finalMessage = messageBP.concat(messageBF, messageSE, messageCS, messageFP);    
+        console.log(finalMessage);
+        alert(finalMessage);
     }
 
     function checkNewItem() {
