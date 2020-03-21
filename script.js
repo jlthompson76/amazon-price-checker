@@ -8,15 +8,17 @@ function amazonPriceCheck() {
     displayMessage();
     checkNewItem();
 
+    // *** While loop isn't working correctly, need to continue debugging ***
+    console.log(keepGoing); // here the value of keepGoing is undefined, not sure why?
     while (keepGoing = true) {
         console.log(`checking the price of another product...`);
         askQuestions();
         calculatePrice();
         displayMessage();
         checkNewItem();
-        if (keepGoing = false) {
+        if (keepGoing = false) { // false isn't recognized, loop keeps repeating
         alert(`Goodbye, ${user}! Thank you for using the Amazon Price Generator today.`);
-        console.log(`Goodbye, ${user}!`);
+        console.log(`bidding goodbye to ${user}`);
         break;
         }
     }
