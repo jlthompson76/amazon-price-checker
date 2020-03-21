@@ -9,7 +9,7 @@ function amazonPriceCheck() {
     checkNewItem();
 
     // *** While loop isn't working correctly, need to continue debugging ***
-    console.log(keepGoing); // here the value of keepGoing is undefined, not sure why?
+    console.log(keepGoing); // returning the keepGoing variable from the checkNewItem function gives it a value of undefined (which should be false?), but the while loop keeps repeating
     while (keepGoing = true) {
         console.log(`checking the price of another product...`);
         askQuestions();
