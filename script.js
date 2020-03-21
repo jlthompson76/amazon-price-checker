@@ -155,6 +155,6 @@ function amazonPriceCheck() {
             console.log(`No, ${user} would not like to check the price of another product.`);
             keepGoing = false;
         } console.log(keepGoing);
-            return keepGoing;
+            return keepGoing; // this returns variable with value of undefined, how to convert to true/false to use in while loop?
     }
 }
