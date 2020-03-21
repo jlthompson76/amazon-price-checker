@@ -6,20 +6,21 @@ function amazonPriceCheck() {
     askQuestions();
     calculatePrice();
     displayMessage();
-    addItems();
+    checkNewItem();
 
     while (keepGoing = true) {
+        console.log(`checking the price of another product...`);
         askQuestions();
         calculatePrice();
         displayMessage();
-        addItems();
+        checkNewItem();
         if (keepGoing = false) {
-            alert(`Goodbye, ${user}! Thank you for using the Amazon Price Generator today.`);
-            console.log(`Goodbye, ${user}!`);
-            break;
+        alert(`Goodbye, ${user}! Thank you for using the Amazon Price Generator today.`);
+        console.log(`Goodbye, ${user}!`);
+        break;
         }
     }
-    
+
     function greetUser() {
         user = prompt(`Hello, welcome to the Amazon Price Generator! My name is Alexa, what is your name?`);
         console.log(user);
@@ -31,10 +32,9 @@ function amazonPriceCheck() {
         askBlackFriday();
         askSearchEngine();
         askShoppingSite();
-    
 
         function askItemBasePrice() {
-            item = prompt(`${user}, please enter the name of the item we'll be price checking today.`);
+            item = prompt(`Please enter the name of the item we'll be price checking today.`);
             item = item.toLowerCase();
             console.log(`item: ${item}`);
             
@@ -42,11 +42,11 @@ function amazonPriceCheck() {
             basePrice = basePrice.toFixed(2);
             console.log(`base price: $${basePrice}`);
             
-            alert(`Thank you, ${user}! The base price of ${item} is $${basePrice}. Please click OK to continue.`)
+            alert(`You've entered a base price of $${basePrice} for ${item}. Please click OK to continue.`)
         }
             
         function askBlackFriday() {
-            blackFriday = prompt(`${user}, is today Black Friday? Please enter yes or no.`);
+            blackFriday = prompt(`Is today Black Friday? Please enter yes or no.`);
             blackFriday = blackFriday.toLowerCase();
 
             for (let index = 0; ((blackFriday != "yes") && (blackFriday != "no")); index++) {
@@ -119,18 +119,21 @@ function amazonPriceCheck() {
     }
 
     function displayMessage() {
-        message = `Thank you, ${user}! The final price of ${item} is $${finalPrice}.`;
+        message = `${user}, the final price of ${item} is $${finalPrice}.`;
         console.log(message);
         alert(message);
     }
 
-    function addItems() {
-        keepGoing = prompt(`${user}, would you like to check the price of another Amazon product? Please enter yes to continue using the Amazon Price Generator or no to exit the application.`); 
-        keepGoing = keepGoing.toLowerCase;
-        if (keepGoing === "yes") {
+    function checkNewItem() {
+        let keepGoing = prompt(`Would you like to check the price of another Amazon product? Please enter yes to continue using the Amazon Price Generator or no to exit the application.`); 
+        keepGoing = keepGoing.toLowerCase();
+        if (keepGoing == "yes") {
+            console.log(`Yes, ${user} would like to check the price of another product.`);
             keepGoing = true;
         } else {
+            console.log(`No, ${user} would not like to check the price of another product.`);
             keepGoing = false;
-        }
+        } console.log(keepGoing);
+            return keepGoing;
     }
 }
