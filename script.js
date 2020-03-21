@@ -1,6 +1,6 @@
 function amazonPriceCheck() {
 
-    let user, blackFriday, blackFridayDiscount, item, basePrice, searchEngine, searchEngineFee, shoppingSite, shoppingSiteDiscount, finalPrice, message, keepGoing;
+    let user, item, basePrice, blackFriday, blackFridayDiscount, searchEngine, searchEngineFee, shoppingSite, shoppingSiteDiscount, blackFridayDiscount$, searchEngineFee$, shoppingSiteDiscount$, finalPrice, message, keepGoing;
 
     greetUser();
     askQuestions();
@@ -136,6 +136,6 @@ function amazonPriceCheck() {
             console.log(`No, ${user} would not like to check the price of another product.`);
             keepGoing = false;
         } console.log(keepGoing);
-            //return keepGoing;
+            return keepGoing;
     }
 }
