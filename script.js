@@ -136,6 +136,6 @@ function amazonPriceCheck() {
             console.log(`No, ${user} would not like to check the price of another product.`);
             keepGoing = false;
         } console.log(keepGoing);
-            return keepGoing;
+            //return keepGoing;
     }
 }
